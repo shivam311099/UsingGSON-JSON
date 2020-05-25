@@ -16,8 +16,7 @@ public class TableToJson {
 
 	public static void main(String[] args) {
 		try {
-			Parent p=new Parent();
-			p.setTname("tables");
+			
 			ArrayList<Tables> al = new ArrayList<>();
 			String tableName = null;
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -43,12 +42,11 @@ public class TableToJson {
 				}
 				tab.setColumns(ls);
 				al.add(tab);
-				p.setTab(al);
 			}
 
 			/* Writing As Json */ 
 			StringBuilder sb=new StringBuilder(); 
-			for(Tables t:p.getTab()) {
+			for(Tables t:al) {
 
 				Gson gson = new GsonBuilder()
 			             .disableHtmlEscaping()
