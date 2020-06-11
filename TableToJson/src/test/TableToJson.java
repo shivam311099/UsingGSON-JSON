@@ -43,19 +43,22 @@ public class TableToJson {
 				tab.setColumns(ls);
 				al.add(tab);
 			}
+			Table tt = new Table();
+			tt.setTab(al);
+			
 
 			/* Writing As Json */ 
 			StringBuilder sb=new StringBuilder(); 
-			for(Tables t:al) {
+			
 
 				Gson gson = new GsonBuilder()
-			             .disableHtmlEscaping()
+			             
 			             .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
 			             .setPrettyPrinting()
 			             .serializeNulls()
 			             .create(); 
-				sb.append(gson.toJson(t)); 
-			}
+				sb.append(gson.toJson(tt)); 
+			
 			sb.append(new Date()); 
 			System.out.println(sb.toString());
 			
